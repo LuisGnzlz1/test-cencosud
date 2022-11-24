@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import data from './data/data.json';
 import Table from "./components/Table";
+import Filters from "./components/Filters";
 
 function App() {
-    const [persons, setPersons] = useState([...data]);
+  const [persons, setPersons] = useState([...data]);
 
   return (
     <div className="App">
-
         <div className="col-lg-12 mx-auto p-4 py-md-5">
             <header className="d-flex align-items-center pb-3 mb-5 border-bottom">
                 <a href="/" className="d-flex align-items-center text-dark text-decoration-none">
@@ -20,37 +20,8 @@ function App() {
                     <span className="title">Test Cencosud</span>
                 </a>
             </header>
-
             <main>
-
-
-                <div className="table-filter">
-                    <div className="row">
-                        <div className="col-sm-9">
-                            <button type="button" className="btn btn-primary"><i className="fa fa-search"></i></button>
-                            <div className="filter-group">
-                                <label>Name</label>
-                                <input type="text" className="form-control" />
-                            </div>
-                            <div className="filter-group">
-                                <label>Status</label>
-                                <select className="form-control">
-                                    <option>Any</option>
-                                    <option>Delivered</option>
-                                    <option>Shipped</option>
-                                    <option>Pending</option>
-                                    <option>Cancelled</option>
-                                </select>
-                            </div>
-                            <span className="filter-icon"><i className="fa fa-filter"></i></span>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
+                <Filters setPersons={setPersons} persons={persons}/>
                 <Table data={persons} />
             </main>
         </div>

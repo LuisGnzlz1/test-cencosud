@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Pagination from "./Pagination";
 import useTable from "../hooks/useTable";
+import {convertDate} from "../utils/date";
 
 const Table = ({ data }) => {
     const [page, setPage] = useState(1);
@@ -24,7 +25,7 @@ const Table = ({ data }) => {
                         <td>{p.apellidos}</td>
                         <td>{p.edad}</td>
                         <td>{p.nacionalidad}</td>
-                        <td>{p.fecha}</td>
+                        <td>{convertDate(p.fecha)}</td>
                     </tr>
                 ))}
                 </tbody>
